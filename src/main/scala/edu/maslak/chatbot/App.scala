@@ -39,7 +39,7 @@ object App {
       case word => new ChatBot(word)
     }
 
-    // import and export currently achieved via java serialization
+
     if (importName != null)
       println(bot load importName)
 
