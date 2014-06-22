@@ -33,6 +33,10 @@ The knowledge base is exported to a human-readable XML file.
 
 
 
+To download a compiled jar, visit: https://github.com/pawcio1357/TheSimpleChatBot/releases/tag/1.0
+
+
+
 
 TODO:
 - implement the XML import using a SAX parser
