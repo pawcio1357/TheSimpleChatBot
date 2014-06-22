@@ -40,12 +40,11 @@ object App {
     if (logName != null)
       bot setVerbose logName
 
-    // import and export currently achieved via java serialization
     if (importName != null)
       println(bot load importName)
 
     // main loop
-    while (bot running) {
+    while (bot.running) {
       print(PROMPT)
       val str = readLine
       println(ANSWER_PREFIX + (bot answer str))

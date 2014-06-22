@@ -58,17 +58,18 @@
     <sourceDirectory>src/main/scala</sourceDirectory>
     <plugins>
       <plugin>
-        <groupId>org.scala-tools</groupId>
-        <artifactId>maven-scala-plugin</artifactId>
-        <version>2.15.0</version>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.1.6</version>
         <executions>
           <execution>
             <goals>
               <goal>compile</goal>
             </goals>
             <configuration>
+			  <recompileMode>incremental</recompileMode>
               <args>
-                <arg>-make:transitive</arg>
+                <!--<arg>-make:transitive</arg>-->
                 <arg>-dependencyfile</arg>
                 <arg>${project.build.directory}/.scala_dependencies</arg>
               </args>
