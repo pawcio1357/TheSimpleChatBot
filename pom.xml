@@ -3,10 +3,10 @@
   <groupId>edu.maslak.chatbot</groupId>
   <artifactId>TheSimpleChatbot</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.0.1</version>
   <name>${project.artifactId}</name>
   <description>My wonderfull scala app</description>
-  <inceptionYear>2010</inceptionYear>
+  <inceptionYear>2014</inceptionYear>
   <licenses>
     <license>
       <name>My License</name>
@@ -45,28 +45,6 @@
       <artifactId>scala-library</artifactId>
       <version>${scala.version}</version>
     </dependency>
-
-    <!-- Test -->
-	<!--
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.scala-tools.testing</groupId>
-      <artifactId>specs_${scala.version}</artifactId>
-      <version>1.6.5</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.scalatest</groupId>
-      <artifactId>scalatest</artifactId>
-      <version>1.2</version>
-      <scope>test</scope>
-    </dependency>
-	-->
 	
 	<dependency>
 	  <groupId>org.scala-lang</groupId>
@@ -78,7 +56,6 @@
 
   <build>
     <sourceDirectory>src/main/scala</sourceDirectory>
-    <!--<testSourceDirectory>src/test/scala</testSourceDirectory>-->
     <plugins>
       <plugin>
         <groupId>org.scala-tools</groupId>
@@ -88,7 +65,6 @@
           <execution>
             <goals>
               <goal>compile</goal>
-              <!--<goal>testCompile</goal>-->
             </goals>
             <configuration>
               <args>
@@ -100,34 +76,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.6</version>
-        <configuration>
-          <useFile>false</useFile>
-          <disableXmlReport>true</disableXmlReport>
-          <!-- If you have classpath issue like NoDefClassError,... -->
-          <!-- useManifestOnlyJar>false</useManifestOnlyJar -->
-          <includes>
-            <include>**/*Test.*</include>
-            <include>**/*Suite.*</include>
-          </includes>
-        </configuration>
-      </plugin>
-	  <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-jar-plugin</artifactId>
-		<version>2.4</version>
-		<configuration>
-			<archive>
-				<manifest>
-					<addClasspath>true</addClasspath>
-					<mainClass>edu.maslak.chatbot.App</mainClass>
-				</manifest>
-			</archive>
-		</configuration>
-	  </plugin>
 	  
 	  <plugin>
 		<groupId>org.apache.maven.plugins</groupId>
