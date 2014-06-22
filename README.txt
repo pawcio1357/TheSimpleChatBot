@@ -1,6 +1,6 @@
---------------------------------------  The simple chatbot in Scala  ----------------------------
------------------------------------------  by Pawe≥ Maúlak (2014)  ------------------------------
---------------------------------------  maslak.pawel.1357@gmail.com  ----------------------------
+Ôªø---------------------------------  The simple chatbot in Scala  -----------------------
+------------------------------------  by Pawe≈Ç Ma≈õlak (2014)  -------------------------
+---------------------------------  maslak.pawel.1357@gmail.com  -----------------------
 
 This is a an implementation of a chatbot using a simplified version of Markov's chain written in Scala.
 
@@ -37,6 +37,6 @@ The knowledge base is exported to a human-readable XML file.
 TODO:
 - implement the XML import using a SAX parser
 	currently the whole XML structure is loaded into memory and processed therein, which could be problematic when the knowledge base gets large
-- make it more context aware, so that the chosen path actually depends on the user's previous statement
+- make it more context aware
 - implement punctuation use
 - deploy it on a server so it can be accessible via telnet or ssh
