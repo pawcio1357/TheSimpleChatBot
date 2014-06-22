@@ -17,12 +17,42 @@ class ChatBot(escapeWord: String) {
   dictionary += (Word.END_WORD -> new Word(Word.END_WORD) with EndWord)
 
   private val random = new Random
-  private var _running = true;
-  def running = _running;
+  private var _running = true
+  private var _verbose = false
+  private var logOut: BufferedWriter = null
+
+  def setVerbose(fileName: String) = {
+    _verbose = true;
+    try {
+      logOut = new BufferedWriter(new FileWriter(fileName))
+    } catch {
+      case e: Exception =>
+    }
+  }
+  private def log(str: String) = {
+    try {
+      logOut.write(str);
+      logOut.newLine()
+    } catch {
+      case e: Exception =>
+    }
+  }
+
+  private def closeLogFile = {
+    try {
+      logOut.close()
+    } catch {
+      case e: Exception =>
+    }
+  }
+
+  def running = _running
 
   def answer(str: String) = str match {
-    case `escapeWord` => { _running = false; ChatBot.BYE_WORD }
+    case `escapeWord` => { _running = false; closeLogFile; ChatBot.BYE_WORD }
     case _ => {
+      if (_verbose) log("User: " + str)
+
       val startWord = dictionary.get(Word.START_WORD).get
       val endWord = dictionary.get(Word.END_WORD).get
       //split the statement into sentences
@@ -99,7 +129,7 @@ class ChatBot(escapeWord: String) {
         answer += " " + word.value
         word = getNextWord(word)
       }
-
+      if (_verbose) log("Bot: " + answer)
       answer
 
     }
@@ -144,7 +174,7 @@ class ChatBot(escapeWord: String) {
         val word = value match {
           case Word.`START_WORD` => new Word(id, value) with StartWord
           case Word.`END_WORD` => new Word(id, value) with EndWord
-          case _ => new Word(id,value)
+          case _ => new Word(id, value)
         }
         wordsIdMap += (id -> word)
         dictionary += (value -> word)

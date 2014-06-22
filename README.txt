@@ -24,9 +24,11 @@ The app accepts command line arguments, which are as follows:
 	specify the output file name where you want to save the knowledge base after the conversation finishes
 -e | --escape
 	specify the "escape" word - typing this word in the conversation will terminate the bot and, if the output file name was specified, trigger the export of the knowledge base
+-v | --verbose
+	log the whole conversation to a text file
 	
 Examples:
-java -jar TheSimpleChatbot-1.0-jar-with-dependencies.jar -i example.xml -o export.xml
+java -jar TheSimpleChatbot-1.0-jar-with-dependencies.jar -i example.xml -o export.xml -v log.txt
 java -jar TheSimpleChatbot-1.0-jar-with-dependencies.jar --input example.xml --output export.xml --escape exit
 
 The knowledge base is exported to a human-readable XML file.

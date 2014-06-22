@@ -1,9 +1,5 @@
 package edu.maslak.chatbot
 
-/**
- * @author ${user.name}
- */
-
 import scala.Predef
 
 object App {
@@ -19,6 +15,7 @@ object App {
     var exportName: String = null
     var escapeWord: String = null
     var learnName: String = null
+    var logName: String = null
 
     // parse the command line arguments
     // e.g. chatbot --escape exit --input in.txt --output out.txt
@@ -29,6 +26,7 @@ object App {
           case "--output" | "-o" => exportName = arg2
           case "--escape" | "-e" => escapeWord = arg2
           case "--learn" | "-l" => learnName = arg2
+          case "--verbose" | "-v" => logName = arg2
           case _ =>
         }
         arg2
@@ -39,7 +37,10 @@ object App {
       case word => new ChatBot(word)
     }
 
+    if (logName != null)
+      bot setVerbose logName
 
+    // import and export currently achieved via java serialization
     if (importName != null)
       println(bot load importName)
 
